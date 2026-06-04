@@ -12,11 +12,23 @@ const basket = {
     speed: 15
 };
 
+const fruits = [
+    "🍎",
+    "🍌",
+    "🍇",
+    "🍓",
+    "🍉",
+    "🍍",
+    "🥝",
+    "🍒"
+];
+
 let fruit = {
     x: Math.random() * 470,
     y: 0,
-    size: 30,
-    speed: 1.5
+    size: 40,
+    speed: 1.5,
+    emoji: fruits[Math.floor(Math.random() * fruits.length)]
 };
 
 document.addEventListener("keydown", moveBasket);
