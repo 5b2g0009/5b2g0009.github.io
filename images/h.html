@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>踩地雷</title>
+
+<style>
+body{
+    text-align:center;
+    font-family:Arial;
+}
+
+#board{
+    display:grid;
+    grid-template-columns:repeat(5,60px);
+    gap:2px;
+    justify-content:center;
+    margin-top:20px;
+}
+
+.cell{
+    width:60px;
+    height:60px;
+    border:1px solid black;
+    background:#ddd;
+    font-size:24px;
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.open{
+    background:white;
+}
+</style>
+</head>
+
+<body>
+
+<h1>踩地雷</h1>
+<p id="msg">請開始遊戲</p>
+
+<div id="board"></div>
+
+<script>
+const size = 5;
+const mineCount = 5;
+const board = document.getElementById("board");
+
+let mines = [];
+
+// 隨機產生地雷
+while(mines.length < mineCount){
+    let n = Math.floor(Math.random() * size * size);
+    if(!mines.includes(n)){
+        mines.push(n);
+    }
+}
+
+for(let i=0;i<size*size;i++){
+
+    const cell = document.createElement("div");
+    cell.className = "cell";
+
+    cell.addEventListener("click",function(){
+
+        if(cell.classList.contains("open")){
+            return;
+        }
+
+        cell.classList.add("open");
+
+        // 踩到地雷
+        if(mines.includes(i)){
+            cell.textContent = "💣";
+            document.getElementById("msg").textContent = "遊戲結束！";
+            revealMines();
+            return;
+        }
+
+        // 計算周圍地雷數
+        let count = countMines(i);
+        cell.textContent = count > 0 ? count : "";
+    });
+
+    board.appendChild(cell);
+}
+
+// 顯示全部地雷
+function revealMines(){
+    const cells = document.querySelectorAll(".cell");
+
+    mines.forEach(index=>{
+        cells[index].textContent = "💣";
+        cells[index].style.backgroundColor = "red";
+    });
+}
+
+// 計算周圍地雷數
+function countMines(index){
+
+    let row = Math.floor(index / size);
+    let col = index % size;
+
+    let count = 0;
+
+    for(let r=-1;r<=1;r++){
+        for(let c=-1;c<=1;c++){
+
+            if(r===0 && c===0) continue;
+
+            let nr = row + r;
+            let nc = col + c;
+
+            if(nr>=0 && nr<size && nc>=0 && nc<size){
+
+                let nIndex = nr * size + nc;
+
+                if(mines.includes(nIndex)){
+                    count++;
+                }
+            }
+        }
+    }
+
+    return count;
+}
+</script>
+
+</body>
+</html>
