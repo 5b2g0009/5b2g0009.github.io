@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>記憶翻牌遊戲</title>
+
+<style>
+body{
+    font-family: Arial;
+    text-align: center;
+    background: #f5f5f5;
+}
+
+h1{
+    color: #333;
+}
+
+#game{
+    width: 440px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 10px;
+}
+
+.card{
+    width: 100px;
+    height: 100px;
+    background: #4CAF50;
+    color: white;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.open{
+    background: white;
+    color: black;
+}
+
+.matched{
+    background: orange;
+    color: white;
+}
+</style>
+</head>
+
+<body>
+
+<h1>記憶翻牌遊戲</h1>
+<p>找出所有相同的圖案！</p>
+
+<div id="game"></div>
+
+<script>
+const symbols = [
+    "🍎","🍎",
+    "🍌","🍌",
+    "🍇","🍇",
+    "🍓","🍓",
+    "🍉","🍉",
+    "🍒","🍒",
+    "🥝","🥝",
+    "🍍","🍍"
+];
+
+// 洗牌
+symbols.sort(() => Math.random() - 0.5);
+
+const game = document.getElementById("game");
+
+let firstCard = null;
+let secondCard = null;
+let lockBoard = false;
+let matchedCount = 0;
+
+symbols.forEach(symbol => {
+
+    const card = document.createElement("div");
+    card.classList.add("card");
+    card.dataset.symbol = symbol;
+    card.textContent = "?";
+
+    card.addEventListener("click", () => {
+
+        if(lockBoard) return;
+        if(card === firstCard) return;
+        if(card.classList.contains("matched")) return;
+
+        card.textContent = symbol;
+        card.classList.add("open");
+
+        if(!firstCard){
+            firstCard = card;
+            return;
+        }
+
+        secondCard = card;
+
+        // 配對成功
+        if(firstCard.dataset.symbol === secondCard.dataset.symbol){
+
+            firstCard.classList.add("matched");
+            secondCard.classList.add("matched");
+
+            matchedCount += 2;
+
+            firstCard = null;
+            secondCard = null;
+
+            if(matchedCount === symbols.length){
+                setTimeout(() => {
+                    alert("恭喜過關！");
+                }, 300);
+            }
+        }
+        else{
+
+            lockBoard = true;
+
+            setTimeout(() => {
+
+                firstCard.textContent = "?";
+                secondCard.textContent = "?";
+
+                firstCard.classList.remove("open");
+                secondCard.classList.remove("open");
+
+                firstCard = null;
+                secondCard = null;
+
+                lockBoard = false;
+
+            }, 1000);
+        }
+
+    });
+
+    game.appendChild(card);
+
+});
+</script>
+
+</body>
+</html>
