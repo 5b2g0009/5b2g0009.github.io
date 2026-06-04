@@ -89,13 +89,6 @@ function update(){
         fruit.y = 0;
     }
 
-    let time = 60;
-
-    let lives = 3;
-
-    ["🍎","🍌","🍇","🍓"]
-
-    fruit.speed += 1;
 
 
     drawBasket();
