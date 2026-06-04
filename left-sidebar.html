@@ -1,225 +1,208 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>接水果遊戲</title>
-
-<style>
-body{
-    text-align:center;
-    font-family:Arial,sans-serif;
-    background:#f0f8ff;
-}
-
-h1{
-    color:#333;
-}
-
-#info{
-    font-size:24px;
-    margin:10px;
-}
-
-canvas{
-    border:3px solid #333;
-    background:#87ceeb;
-}
-
-button{
-    margin-top:10px;
-    padding:10px 20px;
-    font-size:18px;
-    cursor:pointer;
-}
-</style>
-</head>
-<body>
-
-<h1>🍎 接水果遊戲 🍌</h1>
-
-<div id="info">
-    分數：<span id="score">0</span>
-    &nbsp;&nbsp;
-    生命：<span id="lives">3</span>
-</div>
-
-<canvas id="game" width="500" height="600"></canvas>
-
-<br>
-
-<button onclick="restartGame()">重新開始</button>
-
 <script>
-const canvas = document.getElementById("game");
-const ctx = canvas.getContext("2d");
-
-let score = 0;
-let lives = 3;
-let gameOver = false;
-
-// 籃子
-const basket = {
-    x: 200,
-    y: 540,
-    width: 100,
-    height: 30,
-    speed: 20
-};
-
-// 水果
-let fruit = {
-    x: Math.random() * 470,
-    y: 0,
-    size: 30,
-    speed: 1.5
-};
-
-// 鍵盤控制
-document.addEventListener("keydown", moveBasket);
-
-function moveBasket(e){
-
-    if(gameOver) return;
-
-    if(e.key === "ArrowLeft"){
-        basket.x -= basket.speed;
-
-        if(basket.x < 0){
-            basket.x = 0;
-        }
-    }
-
-    if(e.key === "ArrowRight"){
-        basket.x += basket.speed;
-
-        if(basket.x + basket.width > canvas.width){
-            basket.x = canvas.width - basket.width;
-        }
-    }
-}
-
-// 畫籃子
-function drawBasket(){
-    ctx.fillStyle = "brown";
-    ctx.fillRect(
-        basket.x,
-        basket.y,
-        basket.width,
-        basket.height
-    );
-}
-
-// 畫水果
-function drawFruit(){
-    ctx.fillStyle = "red";
-
-    ctx.beginPath();
-
-    ctx.arc(
-        fruit.x,
-        fruit.y,
-        fruit.size / 2,
-        0,
-        Math.PI * 2
-    );
-
-    ctx.fill();
-}
-
-// 產生新水果
-function resetFruit(){
-    fruit.x = Math.random() * (canvas.width - fruit.size);
-    fruit.y = 0;
-}
-
-// 遊戲主迴圈
-function update(){
-
-    if(gameOver){
-        return;
-    }
-
-    ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-
-    fruit.y += fruit.speed;
-
-    // 接到水果
-    if(
-        fruit.y + fruit.size >= basket.y &&
-        fruit.x >= basket.x &&
-        fruit.x <= basket.x + basket.width
-    ){
-
-        score++;
-
-        document.getElementById("score").textContent = score;
-
-        // 每10分增加速度
-        if(score % 10 === 0){
-            fruit.speed += 0.3;
-        }
-
-        resetFruit();
-    }
-
-    // 漏接水果
-    if(fruit.y > canvas.height){
-
-        lives--;
-
-        document.getElementById("lives").textContent = lives;
-
-        resetFruit();
-
-        if(lives <= 0){
-
-            gameOver = true;
-
-            alert(
-                "遊戲結束！\n你的分數：" + score
-            );
-
-            return;
-        }
-    }
-
-    drawBasket();
-    drawFruit();
-
-    requestAnimationFrame(update);
-}
-
-// 重新開始
-function restartGame(){
-
-    score = 0;
-    lives = 3;
-    gameOver = false;
-
-    basket.x = 200;
-
-    fruit = {
-        x: Math.random() * 470,
-        y: 0,
-        size: 30,
-        speed: 1.5
-    };
-
-    document.getElementById("score").textContent = score;
-    document.getElementById("lives").textContent = lives;
-
-    update();
-}
-
-// 啟動遊戲
-update();
-</script>
-
-</body>
-</html>
+	const canvas = document.getElementById("game");
+	const ctx = canvas.getContext("2d");
+	
+	let score = 0;
+	let lives = 3;
+	let gameOver = false;
+	
+	const fruits = [
+		"🍎","🍌","🍇","🍓",
+		"🍉","🍍","🥝","🍒"
+	];
+	
+	// 籃子
+	const basket = {
+		x: 200,
+		y: 520,
+		width: 80,
+		height: 80,
+		speed: 25
+	};
+	
+	// 水果
+	let fruit = {
+		x: Math.random() * 450,
+		y: 0,
+		size: 40,
+		speed: 1.5,
+		emoji: fruits[Math.floor(Math.random() * fruits.length)]
+	};
+	
+	// 更新生命值
+	function updateLives(){
+		document.getElementById("lives").innerHTML =
+			"❤️".repeat(lives);
+	}
+	
+	// 鍵盤控制
+	document.addEventListener("keydown", moveBasket);
+	
+	function moveBasket(e){
+	
+		if(gameOver) return;
+	
+		if(e.key === "ArrowLeft"){
+			basket.x -= basket.speed;
+		}
+	
+		if(e.key === "ArrowRight"){
+			basket.x += basket.speed;
+		}
+	
+		if(basket.x < 0){
+			basket.x = 0;
+		}
+	
+		if(basket.x > canvas.width - basket.width){
+			basket.x = canvas.width - basket.width;
+		}
+	}
+	
+	// 畫籃子
+	function drawBasket(){
+	
+		ctx.font = "70px Arial";
+	
+		ctx.fillText(
+			"🧺",
+			basket.x,
+			basket.y + 60
+		);
+	
+	}
+	
+	// 畫水果
+	function drawFruit(){
+	
+		ctx.font = "40px Arial";
+	
+		ctx.fillText(
+			fruit.emoji,
+			fruit.x,
+			fruit.y
+		);
+	
+	}
+	
+	// 重設水果
+	function resetFruit(){
+	
+		fruit.x = Math.random() * (canvas.width - 50);
+		fruit.y = 0;
+	
+		fruit.emoji =
+			fruits[Math.floor(Math.random() * fruits.length)];
+	
+	}
+	
+	// 遊戲主迴圈
+	function update(){
+	
+		if(gameOver){
+			return;
+		}
+	
+		// 天空背景
+		const gradient =
+			ctx.createLinearGradient(
+				0,0,
+				0,canvas.height
+			);
+	
+		gradient.addColorStop(0,"#87CEEB");
+		gradient.addColorStop(1,"#E6FFE6");
+	
+		ctx.fillStyle = gradient;
+		ctx.fillRect(
+			0,
+			0,
+			canvas.width,
+			canvas.height
+		);
+	
+		// 草地
+		ctx.fillStyle = "#90EE90";
+		ctx.fillRect(
+			0,
+			canvas.height - 80,
+			canvas.width,
+			80
+		);
+	
+		fruit.y += fruit.speed;
+	
+		// 接到水果
+		if(
+			fruit.y >= basket.y &&
+			fruit.x >= basket.x &&
+			fruit.x <= basket.x + basket.width
+		){
+	
+			score++;
+	
+			document.getElementById("score")
+			.textContent = score;
+	
+			// 每10分加速
+			if(score % 10 === 0){
+				fruit.speed += 0.3;
+			}
+	
+			resetFruit();
+		}
+	
+		// 漏接
+		if(fruit.y > canvas.height){
+	
+			lives--;
+	
+			updateLives();
+	
+			resetFruit();
+	
+			if(lives <= 0){
+	
+				gameOver = true;
+	
+				alert(
+					"🎮 遊戲結束！\n\n你的分數：" + score
+				);
+	
+				return;
+			}
+		}
+	
+		drawBasket();
+		drawFruit();
+	
+		requestAnimationFrame(update);
+	}
+	
+	// 重新開始
+	function restartGame(){
+	
+		score = 0;
+		lives = 3;
+		gameOver = false;
+	
+		basket.x = 200;
+	
+		fruit = {
+			x: Math.random() * 450,
+			y: 0,
+			size: 40,
+			speed: 1.5,
+			emoji: fruits[Math.floor(Math.random() * fruits.length)]
+		};
+	
+		document.getElementById("score").textContent = 0;
+	
+		updateLives();
+	
+		update();
+	}
+	
+	updateLives();
+	update();
+	</script>
