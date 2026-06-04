@@ -23,6 +23,20 @@ const fruits = [
     "🍒"
 ];
 
+function drawBasket() {
+    ctx.font = "80px Arial";
+    ctx.fillText(
+        "🧺",
+        basket.x,
+        basket.y + 60
+    );
+}
+
+function updateLives() {
+    document.getElementById("lives").innerHTML =
+        "❤️".repeat(lives);
+}
+
 let fruit = {
     x: Math.random() * 470,
     y: 0,
@@ -49,33 +63,55 @@ function moveBasket(e) {
     }
 }
 
-function drawBasket() {
-    ctx.fillStyle = "brown";
-    ctx.fillRect(
-        basket.x,
-        basket.y,
-        basket.width,
-        basket.height
+ctx.font = "80px Arial";
+
+// 天空背景
+const gradient =
+    ctx.createLinearGradient(
+        0, 0,
+        0, canvas.height
     );
-}
 
-function drawFruit() {
-    ctx.fillStyle = "red";
+gradient.addColorStop(0, "#87CEEB");
+gradient.addColorStop(1, "#FFFACD");
 
-    ctx.beginPath();
-    ctx.arc(
+ctx.fillStyle = gradient;
+ctx.fillRect(
+    0,
+    0,
+    canvas.width,
+    canvas.height
+);
+
+// 草地
+ctx.fillStyle = "#90EE90";
+ctx.fillRect(
+    0,
+    canvas.height - 80,
+    canvas.width,
+    80
+);
+
+function drawFruit(){
+
+    ctx.font = "40px Arial";
+
+    ctx.fillText(
+        fruit.emoji,
         fruit.x,
-        fruit.y,
-        fruit.size / 2,
-        0,
-        Math.PI * 2
+        fruit.y
     );
-    ctx.fill();
+
 }
 
-function resetFruit() {
-    fruit.x = Math.random() * (canvas.width - fruit.size);
+function resetFruit(){
+
+    fruit.x = Math.random() * (canvas.width - 50);
     fruit.y = 0;
+
+    fruit.emoji =
+        fruits[Math.floor(Math.random() * fruits.length)];
+
 }
 
 function update() {
