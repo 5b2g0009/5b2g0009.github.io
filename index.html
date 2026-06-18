@@ -1,349 +1,260 @@
-<!DOCTYPE HTML>
-<!--
-	ZeroFour by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>ZeroFour by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="homepage is-preload">
-		<div id="page-wrapper">
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="個人簡介網站 - 展示個人專長、本學期修課學習重點與踩地雷互動小遊戲，以及期末專案水果遊戲成果。">
+  <title>個人網頁 | 專案與課程成果展示</title>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-			<!-- Header -->
-				<div id="header-wrapper">
-					<div class="container">
+  <!-- 導覽列 -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo">PORTFOLIO<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#" class="active">首頁</a></li>
+        <li><a href="#about">關於我</a></li>
+        <li><a href="#project">期末專題</a></li>
+        <li><a href="#courses">本季課程</a></li>
+        <li><a href="#game">踩地雷遊戲</a></li>
+      </ul>
+      <button class="menu-toggle" id="menuToggle" aria-label="切換選單">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
 
-						<!-- Header -->
-							<header id="header">
-								<div class="inner">
+  <!-- 首頁 Hero 區塊 -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-subtitle">Welcome to my space</span>
+        <h1 class="hero-title">哈囉，我是網頁設計的實踐者</h1>
+        <p class="hero-description">
+          這裡記錄了我本學期的學習軌跡、精心製作的期末專題，以及一個可以在瀏覽器直接遊玩的極簡踩地雷小遊戲。追求簡約的視覺質感與極致的程式邏輯。
+        </p>
+        <div class="hero-cta-container">
+          <a href="#project" class="btn btn-primary">探索期末專案</a>
+          <a href="#game" class="btn btn-secondary">玩踩地雷</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-									<!-- Logo -->
-										<h1><a href="index.html" id="logo">Home</a></h1>
+  <!-- 關於我 Section -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Profile</span>
+        <h2 class="section-title">關於我</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            我是南臺科技大學的學生，對<strong>前端網頁開發</strong>、<strong>使用者介面設計 (UI/UX)</strong> 以及<strong>網頁遊戲開發</strong>有著濃厚的興趣。
+          </p>
+          <p>
+            在網頁開發的世界裡，我追求乾淨的程式碼與精美的視覺設計。我深信好的使用者體驗源自於對細節的雕琢——無論是精確的邊框、適度的留白，或是流暢的微動畫。
+          </p>
+          <p>
+            本學期我專注於提升 JavaScript 的互動邏輯開發能力，並嘗試將物理引擎概念融入網頁中，完成了我的期末專題「水果遊戲」。
+          </p>
+        </div>
+        <div>
+          <h3 class="skills-title">核心技能標籤</h3>
+          <div class="skills-list">
+            <span class="skill-tag">HTML5 / CSS3</span>
+            <span class="skill-tag">JavaScript ES6</span>
+            <span class="skill-tag">響應式網頁設計 (RWD)</span>
+            <span class="skill-tag">網頁遊戲邏輯</span>
+            <span class="skill-tag">UI/UX 視覺設計</span>
+            <span class="skill-tag">物理引擎應用</span>
+            <span class="skill-tag">Git 程式版本控制</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-									<!-- Nav -->
-										<nav id="nav">
-											<ul>
-												<li class="current_page_item"><a href="index.html">Home</a></li>
-												<li>
-													<a href="#">小遊戲</a>
-													<ul>
-														<li><a href="h.html">踩地雷</a></li>
-														<li><a href="t.html">貪吃蛇</a></li>
-														<li>
-															<a href="f.html">記憶翻牌</a>
-															<ul>
-																<li><a href="h.html">踩地雷</a></li>
-																<li><a href="t.html">貪吃蛇</a></li>
-																<li><a href="f.html">記憶翻牌</a></li>
-																<li><a href="#">Etiam dolore nisl</a></li>
-															</ul>
-														</li>
-														<li><a href="#">Veroeros feugiat</a></li>
-													</ul>
-												</li>
-												<li><a href="left-sidebar.html">left-sidebar</a></li>
-												<li><a href="right-sidebar.html">Right Sidebar</a></li>
-												<li><a href="no-sidebar.html">No Sidebar</a></li>
-											</ul>
-										</nav>
+  <!-- 期末專題焦點 Section (明顯擺放) -->
+  <section class="section" id="project">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Featured Project</span>
+        <h2 class="section-title">期末專題成果</h2>
+      </div>
+      
+      <!-- 醒目的專題宣傳卡 -->
+      <div class="project-showcase">
+        <div class="project-details">
+          <span class="project-tag">期末專題推薦</span>
+          <h3 class="project-name">水果切切樂遊戲 (Fruit Ninja)</h3>
+          <p class="project-description">
+            本學期的重磅期末專案。這是一個網頁版的水果忍者割切遊戲，玩家需要滑動滑鼠或在觸控螢幕上劃過畫面，將飛出的水果一刀兩斷以獲取分數，並同時避開混雜在其中的炸彈。遊戲具有流暢的刀光特效、逼真的水果分裂物理效果，以及刺激的連擊得分機制！
+          </p>
+          <ul class="project-specs">
+            <li>HTML5 Canvas</li>
+            <li>刀光特效與物理分裂</li>
+            <li>RWD 支援與觸控優化</li>
+          </ul>
+          <a href="https://5b2g0009.github.io/fruit/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="launchProjectBtn" style="align-self: flex-start;">
+            啟動水果忍者專題 ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-								</div>
-							</header>
+  <!-- 本學期課程 Section -->
+  <section class="section" id="courses">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Semester Journey</span>
+        <h2 class="section-title">本學期上課內容</h2>
+      </div>
+      <div class="courses-grid">
+        
+        <!-- 課程 1 -->
+        <div class="course-card" onclick="toggleCourse(this)">
+          <span class="course-code">Course 01</span>
+          <h3 class="course-title">網頁前端設計與開發</h3>
+          <p class="course-summary">學習網頁標準結構（HTML5）與現代排版技術，並深入探索 JavaScript 動態頁面交互邏輯。</p>
+          <div class="course-details">
+            <ul>
+              <li>熟練 Flexbox 與 CSS Grid 響應式佈局。</li>
+              <li>理解 DOM 元素的操作與事件監聽器。</li>
+              <li>實作網頁非同步資料載入與 UI 渲染。</li>
+            </ul>
+          </div>
+        </div>
 
-						<!-- Banner -->
-							<div id="banner">
-								<h2><strong>你好</strong>
-								<br />
-								</h2>
-							</div>
+        <!-- 課程 2 -->
+        <div class="course-card" onclick="toggleCourse(this)">
+          <span class="course-code">Course 02</span>
+          <h3 class="course-title">互動網頁遊戲設計</h3>
+          <p class="course-summary">掌握網頁遊戲的基本架構，包含二維陣列、計時器、碰撞演算法以及狀態機的設計。</p>
+          <div class="course-details">
+            <ul>
+              <li>二維陣列的應用（踩地雷地圖生成與遞迴展開演算法）。</li>
+              <li>Canvas 動畫渲染與畫面幀數 (fps) 控制。</li>
+              <li>遊戲勝負判定與重置邏輯開發。</li>
+            </ul>
+          </div>
+        </div>
 
-					</div>
-				</div>
+        <!-- 課程 3 -->
+        <div class="course-card" onclick="toggleCourse(this)">
+          <span class="course-code">Course 03</span>
+          <h3 class="course-title">使用者介面與體驗 (UI/UX)</h3>
+          <p class="course-summary">探討如何設計出既美觀又符合直覺的使用者介面。本網站的極簡質感暗色主題即為其實踐。</p>
+          <div class="course-details">
+            <ul>
+              <li>顏色心理學與深色模式配色哲學。</li>
+              <li>無襯線字體的排版與文字階層規劃。</li>
+              <li>滑鼠懸停 (Hover) 與過渡 (Transition) 的微互動設計。</li>
+            </ul>
+          </div>
+        </div>
 
-			<!-- Main Wrapper -->
-				<div id="main-wrapper">
-					<div class="wrapper style1">
-						<div class="inner">
+        <!-- 課程 4 -->
+        <div class="course-card" onclick="toggleCourse(this)">
+          <span class="course-code">Course 04</span>
+          <h3 class="course-title">雲端平台與專案部署</h3>
+          <p class="course-summary">學習如何使用 Git 版本控制系統進行專案管理，並將成品發布至 GitHub Pages 等雲端靜態空間。</p>
+          <div class="course-details">
+            <ul>
+              <li>Git 基礎指令操作（Commit, Push, Branch）。</li>
+              <li>GitHub 倉庫管理與專案協作。</li>
+              <li>使用 GitHub Pages 自動化部署靜態網頁（如期末水果專題）。</li>
+            </ul>
+          </div>
+        </div>
 
-							<!-- Feature 1 -->
-								<section class="container box feature1">
-									<div class="row">
-										<div class="col-12">
-											<header class="first major">
-												<h2></h2>
-												<p><strong>some about me</strong></p>
-											</header>
-										</div>
-										<div class="col-4 col-12-medium">
-											<section>
-												<a href="#" class="image featured"><img src="南臺科大校門口.jpg" alt="" /></a>
-												<header class="second icon solid fa-user">
-													<h3>目前就讀南台科技大學</h3>
-													<p></p>
-												</header>
-											</section>
-										</div>
-										<div class="col-4 col-12-medium">
-											<section>
-												<a href="#" class="image featured"><img src="image.jpeg" alt="" /></a>
-												<header class="second icon solid fa-cog">
-													<h3></h3>
-													<p></p>
-												</header>
-											</section>	
-										</div>
-										<div class="col-4 col-12-medium">
-											<section>
-												<a href="#" class="image featured"><img src="1.jpg" alt="" /></a>
-												<header class="second icon solid fa-chart-bar">
-													<h3>寫程式</h3>
-													<p>html,css</p>
-												</header>
-											</section>
-										</div>
-										<div class="col-12">
-											<p></p>
-										</div>
-									</div>
-								</section>
+      </div>
+    </div>
+  </section>
 
-						</div>
-					</div>
-					<div class="wrapper style2">
-						<div class="inner">
+  <!-- 踩地雷遊戲 Section -->
+  <section class="section" id="game">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Interactive Game</span>
+        <h2 class="section-title">極簡踩地雷小遊戲</h2>
+      </div>
 
-							<!-- Feature 2 -->
-								<section class="container box feature2">
-									<div class="row">
-										<div class="col-6 col-12-medium">
-											<section>
-												<header class="major">
-													<h2>自我介紹與學習目標</h2>
-													<p></p>
-												</header>
-												<p>我目前就讀五專三年級，主修資工系。這三年來，我積極培養專業技能與實務經驗，期望未來能在科技有所發展。</p>
-											</section>
-										</div>
-										<div class="col-6 col-12-medium">
-											<section>
-												<header class="major">
-													<h2>自我成長與未來展望</h2>
-													<p></p>
-												</header>
-												<p>透過學習與實務經驗，我更了解自己的興趣與專長，也明確了未來的目標。希望能繼續深造或進入科技業，成為一名具備專業能力與良好態度的職場人。</p>
-											</section>
-										</div>
-									</div>
-								</section>
+      <!-- 踩地雷容器 -->
+      <div class="game-container">
+        
+        <!-- 控制面板 -->
+        <div class="game-controls">
+          <div>
+            <select class="difficulty-select" id="difficultySelect">
+              <option value="easy">初級 (9x9, 10個雷)</option>
+              <option value="medium">中級 (16x16, 40個雷)</option>
+            </select>
+          </div>
+          <button class="smiley-btn" id="smileyBtn">🙂</button>
+          <div class="game-stats">
+            <div class="stat-box">
+              <span class="stat-icon">🚩</span>
+              <span id="mineCounter">010</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-icon">⏱️</span>
+              <span id="timer">000</span>
+            </div>
+          </div>
+        </div>
 
-							</div>
-					</div>
-					<div class="wrapper style3">
-						<div class="inner">
-							<div class="container">
-								<div class="row">
-									<div class="col-8 col-12-medium">
+        <!-- 遊戲棋盤 -->
+        <div class="minesweeper-wrapper">
+          <div class="minesweeper-grid" id="minesweeperGrid"></div>
+          
+          <!-- 勝負彈出窗 -->
+          <div class="game-overlay" id="gameOverlay">
+            <div class="overlay-content">
+              <h3 class="overlay-title" id="overlayTitle">遊戲結束</h3>
+              <p class="overlay-text" id="overlayText">恭喜獲勝！</p>
+              <button class="btn btn-accent" id="restartBtn">再玩一次</button>
+            </div>
+          </div>
+        </div>
 
-										<!-- Article list -->
-											<section class="box article-list">
-												<h2 class="icon fa-file-alt">Recent Posts</h2>
+        <!-- 手機端標記切換（輔助功能） -->
+        <div class="mobile-controls">
+          <button class="flag-mode-btn" id="flagModeBtn">
+            <span>⛏️</span> 挖土模式
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
 
-												<!-- Excerpt -->
-													<article class="box excerpt">
-														<a href="#" class="image left"><img src="images/pic04.jpg" alt="" /></a>
-														<div>
-															<header>
-																<span class="date">3/19</span>
-																<h3><a href="#">課程與收穫</a></h3>
-															</header>
-															<p>專業課程：學習了（例如：電腦程式設計、電子電路），透過課堂實作與專題製作，提升了實務操作能力與問題解決能力。
-																英文能力：透過英文閱讀與寫作課程，增強了專業英文理解力，對未來國際接軌有幫助。
-																軟實力培養：參與社團與校內活動，訓練團隊合作與溝通技巧。</p>
-														</div>
-													</article>
+  <!-- 頁尾 -->
+  <footer>
+    <div class="container footer-content">
+      <div class="copyright">
+        &copy; 2026 個人課程成果網站. All rights reserved.
+      </div>
+      <div class="social-links">
+        <a href="https://5b2g0009.github.io/fruit/" target="_blank" rel="noopener noreferrer">期末水果專案</a>
+        <a href="#about">關於我</a>
+        <a href="#game">踩地雷</a>
+      </div>
+    </div>
+  </footer>
 
-												<!-- Excerpt -->
-													<article class="box excerpt">
-														<a href="#" class="image left"><img src="images/pic05.jpg" alt="" /></a>
-														<div>
-															<header>
-																<span class="date">July 18</span>
-																<h3><a href="#">Adventuring with a knee injury</a></h3>
-															</header>
-															<p>Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus
-															semper mod quisturpis nisi consequat etiam lorem. Phasellus quam turpis,
-															feugiat et sit amet ornare in, hendrerit in lectus semper mod quis eget mi dolore.</p>
-														</div>
-													</article>
-
-												<!-- Excerpt -->
-													<article class="box excerpt">
-														<a href="#" class="image left"><img src="images/pic06.jpg" alt="" /></a>
-														<div>
-															<header>
-																<span class="date">July 14</span>
-																<h3><a href="#">Preparing for Y2K38</a></h3>
-															</header>
-															<p>Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus
-															semper mod quisturpis nisi consequat etiam lorem. Phasellus quam turpis,
-															feugiat et sit amet ornare in, hendrerit in lectus semper mod quis eget mi dolore.</p>
-														</div>
-													</article>
-
-											</section>
-									</div>
-									<div class="col-4 col-12-medium">
-
-										<!-- Spotlight -->
-											<section class="box spotlight">
-												<h2 class="icon fa-file-alt">Spotlight</h2>
-												<article>
-													<a href="#" class="image featured"><img src="images/pic07.jpg" alt=""></a>
-													<header>
-														<h3><a href="#">Neural Implants</a></h3>
-														<p>The pros and cons. Mostly cons.</p>
-													</header>
-													<p>Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus semper mod
-													quisturpis nisi consequat ornare in, hendrerit in lectus semper mod quis eget mi quat etiam
-													lorem. Phasellus quam turpis, feugiat sed et lorem ipsum dolor consequat dolor feugiat sed
-													et tempus consequat etiam.</p>
-													<p>Lorem ipsum dolor quam turpis, feugiat sit amet ornare in, hendrerit in lectus semper
-													mod quisturpis nisi consequat etiam lorem sed amet quam turpis.</p>
-													<footer>
-														<a href="#" class="button alt icon solid fa-file-alt">Continue Reading</a>
-													</footer>
-												</article>
-											</section>
-
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			<!-- Footer Wrapper -->
-				<div id="footer-wrapper">
-					<footer id="footer" class="container">
-						<div class="row">
-							<div class="col-3 col-6-medium col-12-small">
-
-								<!-- Links -->
-									<section>
-										<h2>Filler Links</h2>
-										<ul class="divided">
-											<li><a href="#">Quam turpis feugiat dolor</a></li>
-											<li><a href="#">Amet ornare in hendrerit </a></li>
-											<li><a href="#">Semper mod quisturpis nisi</a></li>
-											<li><a href="#">Consequat etiam phasellus</a></li>
-											<li><a href="#">Amet turpis, feugiat et</a></li>
-											<li><a href="#">Ornare hendrerit lectus</a></li>
-											<li><a href="#">Semper mod quis et dolore</a></li>
-											<li><a href="#">Amet ornare in hendrerit</a></li>
-											<li><a href="#">Consequat lorem phasellus</a></li>
-											<li><a href="#">Amet turpis, feugiat amet</a></li>
-											<li><a href="#">Semper mod quisturpis</a></li>
-										</ul>
-									</section>
-
-							</div>
-							<div class="col-3 col-6-medium col-12-small">
-
-								<!-- Links -->
-									<section>
-										<h2>More Filler</h2>
-										<ul class="divided">
-											<li><a href="#">Quam turpis feugiat dolor</a></li>
-											<li><a href="#">Amet ornare in in lectus</a></li>
-											<li><a href="#">Semper mod sed tempus nisi</a></li>
-											<li><a href="#">Consequat etiam phasellus</a></li>
-										</ul>
-									</section>
-
-								<!-- Links -->
-									<section>
-										<h2>Even More Filler</h2>
-										<ul class="divided">
-											<li><a href="#">Quam turpis feugiat dolor</a></li>
-											<li><a href="#">Amet ornare hendrerit lectus</a></li>
-											<li><a href="#">Semper quisturpis nisi</a></li>
-											<li><a href="#">Consequat lorem phasellus</a></li>
-										</ul>
-									</section>
-
-							</div>
-							<div class="col-6 col-12-medium imp-medium">
-
-								<!-- About -->
-									<section>
-										<h2><strong>ZeroFour</strong> by HTML5 UP</h2>
-										<p>Hi! This is <strong>ZeroFour</strong>, a free, fully responsive HTML5 site
-										template by <a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net/">HTML5 UP</a>.
-										It's <a href="http://html5up.net/license/">Creative Commons Attribution</a>
-										licensed so use it for any personal or commercial project (just credit us
-										for the design!).</p>
-										<a href="#" class="button alt icon solid fa-arrow-circle-right">Learn More</a>
-									</section>
-
-								<!-- Contact -->
-									<section>
-										<h2>Get in touch</h2>
-										<div>
-											<div class="row">
-												<div class="col-6 col-12-small">
-													<dl class="contact">
-														<dt>Twitter</dt>
-														<dd><a href="#">@untitled-corp</a></dd>
-														<dt>Facebook</dt>
-														<dd><a href="#">facebook.com/untitled</a></dd>
-														<dt>WWW</dt>
-														<dd><a href="#">untitled.tld</a></dd>
-														<dt>Email</dt>
-														<dd><a href="#">user@untitled.tld</a></dd>
-													</dl>
-												</div>
-												<div class="col-6 col-12-small">
-													<dl class="contact">
-														<dt>Address</dt>
-														<dd>
-															1234 Fictional Rd<br />
-															Nashville, TN 00000-0000<br />
-															USA
-														</dd>
-														<dt>Phone</dt>
-														<dd>(000) 000-0000</dd>
-													</dl>
-												</div>
-											</div>
-										</div>
-									</section>
-
-							</div>
-							<div class="col-12">
-								<div id="copyright">
-									<ul class="menu">
-										<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</footer>
-				</div>
-
-		</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+  <!-- Scripts -->
+  <script src="app.js"></script>
+  <script src="minesweeper.js"></script>
+</body>
 </html>
